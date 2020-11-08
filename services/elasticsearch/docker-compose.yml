@@ -1,0 +1,14 @@
+version: '2.3'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
+    hostname: elasticsearch
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./data.tmp:/usr/share/elasticsearch/data
+    environment:
+      discovery.type: single-node
+      # cluster.routing.allocation.disk.threshold_enabled: false

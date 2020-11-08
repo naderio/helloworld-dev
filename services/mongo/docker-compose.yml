@@ -1,0 +1,20 @@
+version: '2.3'
+
+services:
+  mongo:
+    image: mongo:4.2
+    hostname: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data.tmp:/data/db
+
+  mongo-gui: # => http://localhost:1102/
+    image: mrvautin/adminmongo
+    hostname: mongo-gui
+    ports:
+      - 1102:1234
+    environment:
+      HOST: 0.0.0.0
+      CONN_NAME: mongo
+      DB_HOST: mongo

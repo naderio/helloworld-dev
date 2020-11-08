@@ -1,0 +1,9 @@
+version: '2.3'
+
+services:
+  mailcatcher: # => http://localhost:1080/
+    image: schickling/mailcatcher:latest
+    hostname: mailcatcher
+    ports:
+      - 1080:1080
+      - 1025:1025

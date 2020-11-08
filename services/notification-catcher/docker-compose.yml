@@ -1,0 +1,9 @@
+version: '2.3'
+
+services:
+  notification-catcher: # => http://localhost:1080/
+    build: .
+    hostname: notification-catcher
+    ports:
+      - 1080:1080
+      - 1025:1025

@@ -1,0 +1,4 @@
+tmp/
+data.tmp/
+*.log
+node_modules/

@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Thumbor",
+    "_postman_id": "5736de5e-b8e2-4170-d452-6cef7be8a356",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "http://localhost:8888/unsafe/fit-in/200x100...",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Content-Type is image/png\", function () {",
+              "    pm.response.to.have.header(\"Content-Type\", \"image/png\");",
+              "});",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:8888/unsafe/fit-in/200x100/filters:blur(4)/https://raw.githubusercontent.com/wiki/thumbor/thumbor/logo-thumbor.png",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": [
+            "unsafe",
+            "fit-in",
+            "200x100",
+            "filters:blur(4)",
+            "https:",
+            "",
+            "raw.githubusercontent.com",
+            "wiki",
+            "thumbor",
+            "thumbor",
+            "logo-thumbor.png"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8888/image (with body)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.expect(pm.response.code).to.be.eq(201);",
+              "});",
+              "",
+              "pm.test(\"Location header is present\", function () {",
+              "    pm.response.to.have.header(\"Location\");",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Slug",
+            "value": "logo-thumbor.png"
+          }
+        ],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8888/image",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["image"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8888/image (with form)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.expect(pm.response.code).to.be.eq(201);",
+              "});",
+              "",
+              "pm.test(\"Location header is present\", function () {",
+              "    pm.response.to.have.header(\"Location\");",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "media",
+              "description": "",
+              "type": "file",
+              "src": "logo-thumbor.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8888/image",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8888",
+          "path": ["image"]
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}
