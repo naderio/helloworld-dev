@@ -1,0 +1,44 @@
+
+# Group Collection Specifications
+
+Collection API with pagination, sorting, and filtering.
+
+## Retrieve posts [GET /post{?offset,limit,sort,filter}]
+
++ Parameters
+    + offset: `0` (number, optional) - Requested offset.
+            + Default: `1`
+    + limit: `10` (number, optional) - Page size; number of records to return.
+            + Default: `10`
+    + sort: `createdAt:-1` (string, optional) - Sort configuration.
+            + Default: `createdAt:-1`
+    + filter: `{ "type": "text" }` (string, optional) - Filter query as JSON.
+            + Default: null
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "id": "1",
+                    "title": "Title #1",
+                    "body": "..."
+                }, {
+                    "id": "2",
+                    "title": "Title #2",
+                    "body": "..."
+                }
+            ],
+            "meta": {
+                "offset": 0,
+                "limit": 3,
+                "total": 5,
+                "sort": {
+                  "createdAt": -1
+                },
+                "filter": {
+                  "type": "text"
+                }
+            }
+        }
+

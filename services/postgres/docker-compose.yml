@@ -1,0 +1,19 @@
+version: '2.3'
+
+services:
+  postgres:
+    image: postgres:12.1
+    hostname: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data.tmp:/var/lib/postgresql/data
+
+  postgres-gui: # => http://localhost:1101/
+    image: dpage/pgadmin4:4
+    hostname: postgres-gui
+    ports:
+      - 1101:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres
+      PGADMIN_DEFAULT_PASSWORD: postgres

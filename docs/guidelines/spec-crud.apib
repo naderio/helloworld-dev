@@ -1,0 +1,129 @@
+
+# Group CRUD Specifications
+
+CRUD API.
+
+### Retrieve collection [GET /post]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+            "data": [{
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }, {
+                "id": "ID",
+                "title": "Title #2",
+                "body": "..."
+            }]
+        }
+
+### Retrieve record [GET /post/{postId}]
+
++ Parameters
+
+    + postId: `ID` (id) - record id.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }
+        }
+
+
+### Create record [POST /post/create]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+            Content-Type: application/json
+
+    + Body
+
+            {
+                "data": {
+                    "title": "Title #1",
+                    "body": "..."
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }
+        }
+
+
+### Edit record [POST /post/{postId}/edit]
+
++ Parameters
+
+    + postId: `ID` (id) - record id.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+            Content-Type: application/json
+
+    + Body
+
+            {
+                "data": {
+                    "title": "Title #1",
+                    "body": "..."
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }
+        }
+
+
+### Delete record [POST /post/{postId}/delete]
+
++ Parameters
+
+    + postId: `ID` (id) - record id.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+        }
+

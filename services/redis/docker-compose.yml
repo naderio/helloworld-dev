@@ -1,0 +1,18 @@
+version: '2.3'
+
+services:
+  redis:
+    image: redis:5.0
+    hostname: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data.tmp:/data
+
+  redis-gui: # => http://localhost:1103/
+    image: rediscommander/redis-commander
+    hostname: redis-gui
+    ports:
+      - 1103:8081
+    environment:
+      REDIS_HOSTS: db00:172.17.0.1:6379:0,db01:172.17.0.1:6379:1,db02:172.17.0.1:6379:2,db10:172.17.0.1:6379:10,db11:172.17.0.1:6379:11,db12:172.17.0.1:6379:12

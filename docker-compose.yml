@@ -1,0 +1,76 @@
+version: '2.3'
+
+# comment/uncomment services according to pereference
+
+services:
+  # postgres:
+  #   extends:
+  #     file: ./services/postgres/docker-compose.yml
+  #     service: postgres
+  #   container_name: ${PROJECT}-postgres
+
+  # postgres-gui:
+  #   extends:
+  #     file: ./services/postgres/docker-compose.yml
+  #     service: postgres-gui
+  #   container_name: ${PROJECT}-postgres-gui
+  #   depends_on:
+  #     - postgres
+
+  mongo:
+    extends:
+      file: ./services/mongo/docker-compose.yml
+      service: mongo
+    container_name: ${PROJECT}-mongo
+
+  mongo-gui:
+    extends:
+      file: ./services/mongo/docker-compose.yml
+      service: mongo-gui
+    container_name: ${PROJECT}-mongo-gui
+    depends_on:
+      - mongo
+
+  redis:
+    extends:
+      file: ./services/redis/docker-compose.yml
+      service: redis
+    container_name: ${PROJECT}-redis
+
+  redis-gui:
+    extends:
+      file: ./services/redis/docker-compose.yml
+      service: redis-gui
+    container_name: ${PROJECT}-redis-gui
+    depends_on:
+      - redis
+
+  # elasticsearch:
+  #   extends:
+  #     file: ./services/elasticsearch/docker-compose.yml
+  #     service: elasticsearch
+  #   container_name: ${PROJECT}-elasticsearch
+
+  # minio:
+  #   extends:
+  #     file: ./services/minio/docker-compose.yml
+  #     service: minio
+  #   container_name: ${PROJECT}-minio
+
+  # thumbor:
+  #   extends:
+  #     file: ./services/thumbor/docker-compose.yml
+  #     service: thumbor
+  #   container_name: ${PROJECT}-thumbor
+
+  # mailcatcher:
+  #   extends:
+  #     file: ./services/mailcatcher/docker-compose.yml
+  #     service: mailcatcher
+  #   container_name: ${PROJECT}-mailcatcher
+
+  notification-catcher:
+    extends:
+      file: ./services/notification-catcher/docker-compose.yml
+      service: notification-catcher
+    container_name: ${PROJECT}-notification-catcher
