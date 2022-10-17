@@ -7,7 +7,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./data.tmp:/data/db
+      - ../data.tmp/mongo:/data/db
 
   mongo-gui: # => http://localhost:1102/
     image: mrvautin/adminmongo

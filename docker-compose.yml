@@ -3,20 +3,6 @@ version: '2.3'
 # comment/uncomment services according to pereference
 
 services:
-  # postgres:
-  #   extends:
-  #     file: ./services/postgres/docker-compose.yml
-  #     service: postgres
-  #   container_name: ${PROJECT}-postgres
-
-  # postgres-gui:
-  #   extends:
-  #     file: ./services/postgres/docker-compose.yml
-  #     service: postgres-gui
-  #   container_name: ${PROJECT}-postgres-gui
-  #   depends_on:
-  #     - postgres
-
   mongo:
     extends:
       file: ./services/mongo/docker-compose.yml
@@ -44,6 +30,20 @@ services:
     container_name: ${PROJECT}-redis-gui
     depends_on:
       - redis
+
+  # postgres:
+  #   extends:
+  #     file: ./services/postgres/docker-compose.yml
+  #     service: postgres
+  #   container_name: ${PROJECT}-postgres
+
+  # postgres-gui:
+  #   extends:
+  #     file: ./services/postgres/docker-compose.yml
+  #     service: postgres-gui
+  #   container_name: ${PROJECT}-postgres-gui
+  #   depends_on:
+  #     - postgres
 
   # elasticsearch:
   #   extends:

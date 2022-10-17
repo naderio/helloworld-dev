@@ -8,4 +8,4 @@ services:
       - 8888:8000
     volumes:
       # - ./thumbor.conf:/usr/src/app/thumbor.conf
-      - ./data.tmp:/data
+      - ../data.tmp/thumbor:/data

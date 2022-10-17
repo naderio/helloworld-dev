@@ -1,4 +1,4 @@
-# Hello World Development
+# Hello World Development Dependencies
 
 ![dependencies](https://img.shields.io/david/naderio/helloworld-dev.svg)
 
@@ -34,8 +34,7 @@ docker-compose up
 cd ./SERVICE
 docker-compose up
 
-# stop services
-# Control+C
+# stop services: Control+C
 ```
 
 ## [Documentation](./docs)

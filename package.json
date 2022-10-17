@@ -3,10 +3,10 @@
   "name": "helloworld-dev",
   "version": "0.1.0",
   "scripts": {
-    "format": "prettier --list-different --write '.*.{yml,json}' '*.{md,yml,json}' 'docs/**/*.{md,yml,json}' 'services/*/*.{md,yml,json}'",
-    "services:cleanup": "sudo rm -fr ./services/*/data.tmp/"
+    "format": "prettier --cache --list-different --write '.*.{yml,json}' '*.{md,yml,json}' 'docs/**/*.{md,yml,json}' 'services/*/*.{md,yml,json}'",
+    "cleanup": "sudo rm -fr ./data.tmp"
   },
   "devDependencies": {
-    "prettier": "~2.2.1"
+    "prettier": "~2.7.1"
   }
 }

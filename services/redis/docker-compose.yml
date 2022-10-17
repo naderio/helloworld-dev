@@ -7,7 +7,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ./data.tmp:/data
+      - ../data.tmp/redis:/data
 
   redis-gui: # => http://localhost:1103/
     image: rediscommander/redis-commander
